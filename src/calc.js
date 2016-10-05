@@ -9,21 +9,42 @@ module.exports = function() {
                 return calc.currTotal;
             },
             "-": function(inputs) {
+                var currTotal = 0;
                 inputs.forEach(function(x) {
-                    calc.currTotal -= x;
+                    if (currTotal === 0 ) {
+                        currTotal = x;
+                    } else {
+                        currTotal -= x;
+                    }
                 });
+                calc.currTotal -= currTotal;
                 return calc.currTotal;
             },
             "/": function(inputs) {
+                var currTotal = 0;
                 inputs.forEach(function(x) {
-                    calc.currTotal /= x;
+                    if (currTotal === 0) {
+                        currTotal = x;
+                    } else {
+                        currTotal /= x;
+                    }
                 });
+                calc.currTotal /= currTotal;
                 return calc.currTotal;
             },
             "*": function(inputs) {
+                var currTotal = 1;
                 inputs.forEach(function(x) {
-                    calc.currTotal *= x;
+                    if (currTotal === 1) {
+                        currTotal = x;
+                    } else {
+                        currTotal *= x;
+                    }
                 });
+                if (calc.currTotal === 0) {
+                    calc.currTotal = 1;
+                }
+                calc.currTotal *= currTotal;
                 return calc.currTotal;
             }
         },
