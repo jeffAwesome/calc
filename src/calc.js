@@ -29,6 +29,9 @@ module.exports = function() {
                         currTotal /= x;
                     }
                 });
+                if (calc.currTotal === 0) {
+                    calc.currTotal = 1;
+                }
                 calc.currTotal /= currTotal;
                 return calc.currTotal;
             },

@@ -73,5 +73,31 @@ describe('Calculator', function() {
 
             expect(value).to.equal(2);
         });
+
+        it("should take multiple values with the + symbol and add them correctly", function() {
+           calc.evaluate('0 *');
+            var value = calc.evaluate('1 2 3 5 +');
+            expect(value).to.equal(11);
+        });
+
+        it("should take multiple values with the - symbol and subtract them correctly", function() {
+            calc.evaluate('0 *');
+            var value = calc.evaluate('5 9 1 -');
+            expect(value).to.equal(5);
+        });
+
+        it("should take multiple values with the * symbol and multiply them correctly", function() {
+            calc.evaluate('0 *');
+            var value = calc.evaluate('3 3 3 *');
+            expect(value).to.equal(27);
+        });
+
+        it("should take multiple values with the / symbol and divide them correctly", function() {
+            calc.evaluate('0 *');
+            var value = calc.evaluate('10 3 2 /');
+            expect(value).to.equal(0.6);
+        });
+
+
     });
 });
