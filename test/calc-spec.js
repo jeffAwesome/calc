@@ -46,4 +46,16 @@ describe('Calculator', function() {
             expect(calcInput[0]).to.equal('1ad');
         });
     });
+
+    describe("#evaluate", function() {
+        it("should take a string of values with + symbol and add", function() {
+            var value = calc.evaluate('1 2 +');
+            expect(value).to.equal(3);
+        });
+        it("should take a string of values with - symbol and subtract", function() {
+            calc.currTotal = 0;
+            var value = calc.evaluate('10 3 -');
+            expect(value).to.equal(7);
+        });
+    });
 });

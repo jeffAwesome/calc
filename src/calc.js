@@ -34,19 +34,24 @@ module.exports = function() {
             var cleanInput = input.split("\n");
             return cleanInput[0].split(" ");
         },
+        reset: function() {
+          calc.currTotal = 0;
+        },
         evaluate: function(input) {
             var expression = calc.cleanInput(input);
             var operands = [];
 
-            expression.forEach(function(x) {
-                if (calc.isNumeric(x)) {
-                    operands.push(parseFloat(x));
-                } else {
-                    if (x == "-" || x == "/" || x == "*" || x == "+") {
-                        calc.operation[x](operands);
+            if (expression.length > 0) {
+                expression.forEach(function(x) {
+                    if (calc.isNumeric(x)) {
+                        operands.push(parseFloat(x));
+                    } else {
+                        if (x == "-" || x == "/" || x == "*" || x == "+") {
+                            calc.operation[x](operands);
+                        }
                     }
-                }
-            });
+                });
+            }
 
             return calc.currTotal;
         }
