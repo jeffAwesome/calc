@@ -2,13 +2,6 @@ var calc = require('../src/calc.js')();
 var assert = require('chai').assert;
 var expect = require('chai').expect
 
-/*describe('Array', function() {
-    describe('#indexOf()', function() {
-        it('should return -1 when the value is not present', function() {
-            assert.equal(-1, [1,2,3].indexOf(4));
-        });
-    });
-}); */
 
 describe('Calculator', function() {
    describe('#isNumeric', function() {
@@ -96,6 +89,26 @@ describe('Calculator', function() {
             calc.evaluate('0 *');
             var value = calc.evaluate('10 3 2 /');
             expect(value).to.equal(0.6);
+        });
+
+        it("should ignore bad values", function() {
+            calc.evaluate('0 *');
+            var value = calc.evaluate('10 3 a +');
+            expect(value).to.equal(13);
+        });
+
+        it("should ignore bad values in operators", function() {
+            calc.evaluate('0 *');
+            var value = calc.evaluate('10 3 a +a');
+            expect(value).to.equal(0);
+        });
+
+        it("should work together with all operators", function() {
+            calc.evaluate('0 *');
+            expect(calc.evaluate('9 1 +')).to.equal(10);
+            expect(calc.evaluate('10 /')).to.equal(1);
+            expect(calc.evaluate('10 *')).to.equal(10);
+            expect(calc.evaluate('2 -')).to.equal(8);
         });
 
 
