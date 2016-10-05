@@ -1,0 +1,6 @@
+Ideas for the project:
+
+1. Use Grunt for build
+2. Use babel for es6 syntax
+3. Use unit testing
+4. Create a readme
