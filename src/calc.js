@@ -30,9 +30,12 @@ module.exports = function() {
         isNumeric: function(input) {
             return !isNaN(parseFloat(input)) && isFinite(input);
         },
-        evaluate: function(input) {
+        cleanInput: function(input) {
             var cleanInput = input.split("\n");
-            var expression = cleanInput[0].split(" ");
+            return cleanInput[0].split(" ");
+        },
+        evaluate: function(input) {
+            var expression = calc.cleanInput(input);
             var operands = [];
 
             expression.forEach(function(x) {

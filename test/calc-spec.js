@@ -1,5 +1,6 @@
 var calc = require('../src/calc.js')();
-var assert = require('assert');
+var assert = require('chai').assert;
+var expect = require('chai').expect
 
 /*describe('Array', function() {
     describe('#indexOf()', function() {
@@ -35,4 +36,14 @@ describe('Calculator', function() {
            assert.equal(true, calc.isNumeric('-10'));
        });
    });
+    describe("#cleanInput", function() {
+        it("should take a string and separate items", function() {
+            var calcInput = calc.cleanInput('1 2 3 +');
+            expect(calcInput).to.have.length(4);
+        });
+        it('should split all items by space', function() {
+            var calcInput = calc.cleanInput('1ad 2 3 +');
+            expect(calcInput[0]).to.equal('1ad');
+        });
+    });
 });
