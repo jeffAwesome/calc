@@ -53,9 +53,25 @@ describe('Calculator', function() {
             expect(value).to.equal(3);
         });
         it("should take a string of values with - symbol and subtract", function() {
-            calc.currTotal = 0;
-            var value = calc.evaluate('10 3 -');
+            calc.evaluate('0 *');
+            calc.evaluate('10 +');
+            var value = calc.evaluate('3 -');
+
             expect(value).to.equal(7);
+        });
+        it("should take a string of values with * symbol and multiply", function() {
+            calc.evaluate('0 *');
+            calc.evaluate('1 +')
+            var value = calc.evaluate('3 *');
+
+            expect(value).to.equal(3);
+        });
+        it("should take a string of values with / symbol and divide", function() {
+            calc.evaluate('0 *');
+            calc.evaluate('4 +')
+            var value = calc.evaluate('2 /');
+
+            expect(value).to.equal(2);
         });
     });
 });

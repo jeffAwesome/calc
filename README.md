@@ -10,11 +10,10 @@ Experimenting with different implementations of RPN Calculator
     * There is no limit to how many digits you can provide on a single line.
     * Each separate number must be separated by a space.
 
-
 # Examples:
     * 1 1 +
     * 10 3 -
     * 10 3 *
-    * 10 / 2
+    * 10 2 /
 # Test Suite
 To run the test suite run mocha test/calc-spec.js.
