@@ -9,7 +9,7 @@
                 console.log("You are exiting the program.");
                 process.exit();
             } else {
-                console.log(calc.evaluate(inputs));
+                console.log("> " + calc.evaluate(inputs));
             }
         }
     });
