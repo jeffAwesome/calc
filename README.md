@@ -21,6 +21,7 @@ past, outside of the angular world.
 # Calculator
     * To start the calculator just type in the console 'node calc.js'
     * To close out the calculator type 'q' and enter.
+
  # Usage
     * To use the calculator you must start by entering at least one number followed by +, -, *, /.
     * You must provide an operator after each use for the new number to be included in an operation.
@@ -31,7 +32,9 @@ past, outside of the angular world.
     * 1 1 +
     * 10 3 -
     * 10 3 *
-    * 10 2 /
+    * 2 10 /
+    * 10 1 1 + -
+    * 10 2 10 * -
 
 # Test Suite
 To run the test suite run mocha test/calc-spec.js.
