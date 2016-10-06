@@ -68,9 +68,7 @@ module.exports = function() {
             calc.currTotal = 0;
         },
         evaluate: function(input) {
-            var result = 0;
             var expression = calc.cleanInput(input);
-            var operands = [];
             var evaluation = [];
 
             if (expression.length > 0) {
