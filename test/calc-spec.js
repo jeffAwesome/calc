@@ -46,21 +46,19 @@ describe('Calculator', function() {
             expect(value).to.equal(3);
         });
         it("should take a string of values with - symbol and subtract", function() {
-            calc.evaluate('0 *');
-            calc.evaluate('10 +');
-            var value = calc.evaluate('3 -');
-
+            calc.reset();
+            var value = calc.evaluate('10 0 3 + -');
             expect(value).to.equal(7);
         });
         it("should take a string of values with * symbol and multiply", function() {
-            calc.evaluate('0 *');
+            calc.reset();
             calc.evaluate('1 +')
             var value = calc.evaluate('3 *');
 
             expect(value).to.equal(3);
         });
         it("should take a string of values with / symbol and divide", function() {
-            calc.evaluate('0 *');
+            calc.reset();
             calc.evaluate('4 +')
             var value = calc.evaluate('2 /');
 
@@ -68,43 +66,43 @@ describe('Calculator', function() {
         });
 
         it("should take multiple values with the + symbol and add them correctly", function() {
-           calc.evaluate('0 *');
-            var value = calc.evaluate('1 2 3 5 +');
+            calc.reset();
+            var value = calc.evaluate('1 2 3 5 + +');
             expect(value).to.equal(11);
         });
 
         it("should take multiple values with the - symbol and subtract them correctly", function() {
-            calc.evaluate('0 *');
-            var value = calc.evaluate('5 9 1 -');
-            expect(value).to.equal(5);
+            calc.reset();
+            var value = calc.evaluate('5 9 1 - -');
+            expect(value).to.equal(-5);
         });
 
         it("should take multiple values with the * symbol and multiply them correctly", function() {
-            calc.evaluate('0 *');
-            var value = calc.evaluate('3 3 3 *');
+            calc.reset();
+            var value = calc.evaluate('0 1 3 3 3 + * *');
             expect(value).to.equal(27);
         });
 
         it("should take multiple values with the / symbol and divide them correctly", function() {
-            calc.evaluate('0 *');
-            var value = calc.evaluate('10 3 2 /');
-            expect(value).to.equal(0.6);
+            calc.reset();
+            var value = calc.evaluate('10 3 2 / /');
+            expect(value).to.equal(0.15);
         });
 
         it("should ignore bad values", function() {
-            calc.evaluate('0 *');
-            var value = calc.evaluate('10 3 a +');
+            calc.reset();
+            var value = calc.evaluate('10 3 a + +');
             expect(value).to.equal(13);
         });
 
         it("should ignore bad values in operators", function() {
-            calc.evaluate('0 *');
+            calc.reset();
             var value = calc.evaluate('10 3 a +a');
             expect(value).to.equal(0);
         });
 
         it("should work together with all operators", function() {
-            calc.evaluate('0 *');
+            calc.reset();
             expect(calc.evaluate('9 1 +')).to.equal(10);
             expect(calc.evaluate('10 /')).to.equal(1);
             expect(calc.evaluate('10 *')).to.equal(10);
